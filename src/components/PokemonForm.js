@@ -16,7 +16,7 @@ function PokemonForm({ onAddPokemon }) {
     });
   }
 
-  function handleSubmit(event) {
+  function handleSubmit() {
     // Semantic UI React's Form component handles the preventDefault automatically!
     const newPokemon = {
       name: formData.name,
@@ -43,7 +43,7 @@ function PokemonForm({ onAddPokemon }) {
       <Form 
         onSubmit={handleSubmit}
       >
-        <Form.Group widths="equal" style={{display: "flex", justifyContent: "center", justifyContent: "space-evenly"}}>
+        <Form.Group widths="equal" style={{display: "flex", justifyContent: "center", justifyContent:"space-evenly"}}>
           <div>
             <label fluid style={{color: "lavenderblush"}}>Name</label>
             <Form.Input placeholder="Name" name="name" value={formData.name} onChange={handleChange} />

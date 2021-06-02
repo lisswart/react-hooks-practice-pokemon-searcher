@@ -14,6 +14,10 @@ function PokemonPage() {
       .then(setPokemon);
   }, []);
 
+  function handleAddPokemon(newPokemon) {
+    setPokemon([...pokemon, newPokemon]);
+  }
+
   const pokemonsToDisplay = pokemon.filter((poke) =>
     poke.name.toLowerCase().includes(searchTerm.toLocaleLowerCase())
   );
@@ -22,7 +26,7 @@ function PokemonPage() {
     <Container>
       <h1>Pokemon Searcher</h1>
       <br />
-      <PokemonForm />
+      <PokemonForm onAddPokemon={handleAddPokemon} />
       <br />
       <Search searchTerm={searchTerm} onChangeSearch={setSearchTerm} />
       <br />
@@ -32,26 +36,3 @@ function PokemonPage() {
 }
 
 export default PokemonPage;
-
-//   function handleAddPokemon(newPokemon) {
-//     setPokemon([...pokemon, newPokemon]);
-//   }
-
-//   const pokemonsToDisplay = pokemon.filter((poke) =>
-//     poke.name.toLowerCase().includes(searchTerm.toLowerCase())
-//   );
-
-//   return (
-//     <Container>
-//       <h1>Pokemon Searcher</h1>
-//       <br />
-//       <PokemonForm onAddPokemon={handleAddPokemon} />
-//       <br />
-//       <Search searchTerm={searchTerm} onChangeSearch={setSearchTerm} />
-//       <br />
-//       <PokemonCollection pokemon={pokemonsToDisplay} />
-//     </Container>
-//   );
-// }
-
-// export default PokemonPage;
